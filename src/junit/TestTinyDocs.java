@@ -13,7 +13,7 @@ import plagdetect.PlagiarismDetector;
 
 public class TestTinyDocs
 {
-    public static final String TINYDOCS = "docs/tinydocs";
+    public static final String TINYDOCS = "src\\\\plagdetect\\\\docs\\\\tinydocs";
     private static final String FILE1 = "file1.txt";
     private static final String FILE2 = "file2.txt";
     private static final String FILE3 = "file3.txt";

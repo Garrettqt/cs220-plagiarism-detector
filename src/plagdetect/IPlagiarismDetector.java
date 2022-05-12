@@ -1,6 +1,7 @@
 package plagdetect;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Map;
@@ -17,6 +18,7 @@ import java.util.Map;
  * @author jspacco
  *
  */
+
 public interface IPlagiarismDetector
 {
     /**
@@ -46,8 +48,9 @@ public interface IPlagiarismDetector
      * 
      * @param filename
      * @return
+     * @throws FileNotFoundException 
      */
-    Collection<String> getNgramsInFile(String filename);
+    Collection<String> getNgramsInFile(String filename) throws FileNotFoundException;
 
     /**
      * Return the number of unique n-grams in a given document. 
@@ -57,8 +60,9 @@ public interface IPlagiarismDetector
      * 
      * @param filename
      * @return
+     * @throws FileNotFoundException 
      */
-    int getNumNgramsInFile(String filename);
+    int getNumNgramsInFile(String filename) throws FileNotFoundException;
     
     
     /**
@@ -119,8 +123,9 @@ public interface IPlagiarismDetector
      * @param file1
      * @param file2
      * @return
+     * @throws FileNotFoundException 
      */
-    int getNumNGramsInCommon(String file1, String file2);
+    int getNumNGramsInCommon(String file1, String file2) throws FileNotFoundException;
     
     /**
      * Return a collection of pairs of documents that have at least minNgrams
@@ -144,7 +149,10 @@ public interface IPlagiarismDetector
      * 
      * @param minNgrams
      * @return
+     * @throws FileNotFoundException 
      */
-    Collection<String> getSuspiciousPairs(int minNgrams);
+    Collection<String> getSuspiciousPairs(int minNgrams) throws FileNotFoundException;
+    
+    Map<String, Collection<String>> FileNamesToNgrams();
 
 }

@@ -12,7 +12,7 @@ import plagdetect.PlagiarismDetector;
 
 public class TestSmallDocs
 {
-    private static final String SMALLDOCS = "docs/smalldocs";
+    private static final String SMALLDOCS = "src\\\\plagdetect\\\\docs\\\\smalldocs";
     
     IPlagiarismDetector detector;
     
@@ -32,8 +32,10 @@ public class TestSmallDocs
         // this generates the code for the following test case;
         // students don't need to actually run this code
         makeDetector(4);
+       
         for (String f1 : detector.getFilenames()){
             for (String f2 : detector.getFilenames()){
+            	
                 if (f1.equals(f2)){
                     // skip files that are the same
                     continue;
@@ -50,6 +52,7 @@ public class TestSmallDocs
     public void testPairs3() throws Exception {
         makeDetector(3);
         Collection<String> pairs = detector.getSuspiciousPairs(10);
+        System.out.println("1st set");
         for (String s : pairs) System.out.println(s);
         assertTrue(pairs.contains("2985.txt 2988.txt 10"));
         assertTrue(pairs.contains("2981.txt 2986.txt 16"));
@@ -67,6 +70,8 @@ public class TestSmallDocs
     public void testPairs4() throws Exception {
         makeDetector(4);
         Collection<String> pairs = detector.getSuspiciousPairs(5);
+        System.out.println("2nd set");
+        for (String s : pairs) System.out.println(s);
         assertTrue(pairs.contains("2983.txt 2995.txt 5"));
         assertTrue(pairs.contains("2982.txt 2997.txt 5"));
         assertTrue(pairs.contains("2991.txt 2993.txt 7"));
@@ -81,6 +86,7 @@ public class TestSmallDocs
     public void testPairs5() throws Exception {
         makeDetector(5);
         Collection<String> pairs = detector.getSuspiciousPairs(4);
+        System.out.println("3rd set");
         for (String s : pairs) System.out.println(s);
         assertTrue(pairs.contains("2980.txt 2995.txt 4"));
         assertTrue(pairs.contains("2982.txt 2997.txt 4"));

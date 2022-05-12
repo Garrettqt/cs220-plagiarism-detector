@@ -8,7 +8,7 @@ import plagdetect.PlagiarismDetector;
 
 class TestAllDocs {
 	
-	static final String DOCS = "docs/alldocs";
+	static final String DOCS = "src\\\\\\\\plagdetect\\\\\\\\docs\\\\\\\\alldocs";
 
     public static IPlagiarismDetector makeDetector(int n) throws Exception {
         // n is the size of an n-gram
@@ -37,9 +37,9 @@ class TestAllDocs {
 		// The average essay is less than 500 words long.
 		// What is a good number to put here? Try some different values to
 		// figure that out!
-		Collection<String> pairs = detector.getSuspiciousPairs(500);
+		Collection<String> pairs = detector.getSuspiciousPairs(20);
 		for (String pair : pairs) {
-			System.out.println(pair);
+			//System.out.println(pair);
 		}
 		total = System.currentTimeMillis() - start;
 		System.out.printf("It took %.1f seconds to check for suspicious pairs in the documents\n", total/1000.0);
