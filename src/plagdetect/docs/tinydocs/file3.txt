@@ -1,3 +1,0 @@
-this file has few or no ngrams in common with the other file
-and we use this file to check that two documents with no grams
-in common does not crash the program
